@@ -77,13 +77,15 @@ namespace SalatBot.Scripts.Main
                 else
                     Program.StartBot(this);
                 m_botIsRunning = !m_botIsRunning;
+                
+                view.startStopBot.GetComponentInChildren<Text>().text = (m_botIsRunning ? "STOP" : "START") + " BOT";
             });
+            
+            view.startStopBot.GetComponentInChildren<Text>().text = (m_botIsRunning ? "STOP" : "START") + " BOT";
         }
 
         private void Update()
         {
-            view.startStopBot.GetComponentInChildren<Text>().text = (m_botIsRunning ? "STOP" : "START") + " BOT";
-
             if (null != m_processMsg)
             {
                 m_lastMessage = m_processMsg;
